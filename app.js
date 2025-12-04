@@ -1,7 +1,7 @@
 
 const cl = console.log;
 
-// DOM Elements
+
 const showModalBtn = document.getElementById("showModalBtn");
 const movieModal = document.getElementById("movieModal");
 const backdrop = document.getElementById("backdrop");
@@ -17,14 +17,14 @@ const addMovieBtn = document.getElementById("addMovieBtn");
 const updateMovieBtn = document.getElementById("updateMovieBtn");
 const loader = document.getElementById("loader");
 
-// Badge color
+
 const Setbadge = (rating) => {
   if (rating >= 4) return "badge-success";
   if (rating >= 3) return "badge-warning";
   return "badge-danger";
 };
 
-// Modal toggle
+
 const onModelToggle = () => {
   backdrop.classList.toggle("active");
   movieModal.classList.toggle("active");
@@ -33,21 +33,21 @@ const onModelToggle = () => {
   updateMovieBtn.classList.add("d-none");
 };
 
-// Loader
+
 const toggleSpinner = (flag) => {
   loader.classList.toggle("d-none", !flag);
 };
 
-// Snackbar
+
 function snackbar(title, icon) {
   Swal.fire({ title, icon, timer: 1500 });
 }
 
-// API URLs
+
 let BASE_URL = "https://movie-model-b5809-default-rtdb.firebaseio.com";
 let MOVIE_URL = `${BASE_URL}/movies.json`;
 
-// Convert object → array
+
 const moviesObjToArr = (obj) => {
   let moviesArr = [];
   for (const key in obj) {
@@ -57,7 +57,7 @@ const moviesObjToArr = (obj) => {
   return moviesArr;
 };
 
-// Generic API Call - async/await
+
 async function makeApiCall(URL, method, body) {
   try {
     toggleSpinner(true);
@@ -86,7 +86,7 @@ async function makeApiCall(URL, method, body) {
 
 
 
-// Fetch & render all movies
+
 async function fetchAllMovie() {
   try {
     const data = await makeApiCall(MOVIE_URL, "GET", null);
@@ -100,7 +100,7 @@ fetchAllMovie();
 
 
 
-// Create movie cards UI
+
 const createMovieCard = (arr) => {
   movieContainer.innerHTML = arr
     .map(
@@ -136,7 +136,7 @@ const createMovieCard = (arr) => {
 
 
 
-// CREATE MOVIE (async)
+//create Movie
 async function onSubmitBtn(event) {
   event.preventDefault();
 
@@ -286,8 +286,9 @@ async function onMovieUpdate() {
 }
 
 
-// Event Listeners
+
 closeModal.forEach((btn) => btn.addEventListener("click", onModelToggle));
 showModalBtn.addEventListener("click", onModelToggle);
 movieForm.addEventListener("submit", onSubmitBtn);
 updateMovieBtn.addEventListener("click", onMovieUpdate);
+
