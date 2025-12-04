@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>K-Drama Movie CRUD</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+</head>
+<body>
+  <div class="container mb-5">
+    <div class="row">
+        <div class="col-12">
+            <header class="mt-5">
+            <div class="row">
+               <div class="col-6">
+                <a href="index.html" class="logo">
+                    <img src="./assets/images/logo.svg" alt="logo" title="logo">
+                </a>
+                </div>
+                <div class="col-6 text-right d-flex justify-content-end align-items-center">
+                <button class="btn btn-sm nfx-pri-btn" id="showModalBtn">
+                 Add Movie
+                </button>
+                </div>   
+            </div>
+            </header>
+        </div>        
+    </div>
+  </div>
+  <h1 class= "text-danger d-flex justify-content-center align-items-center mb-5 ">🎬 K-Drama Collection</h1>
+    <div class="container-fluid">
+      <div class="row" id="movieContainer">
+        <div class="col-md-3 col-sm-6">
+          <div class="card movieCard text-white mb-4">
+            <div class="card-header">
+              <div class="row">
+                <div class="col-10">
+                  <h2 class="m"></h2>
+                 </div>
+                  <div class="col-2">
+                    <h3><span class="badge badge-success" style = "font-size: medium;">5</span></h3>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body py-0">
+              <figure>
+                <img src=""
+                alt="" title="" class="img-fluid mb-3">
+                <figcaption>
+                  <h5></h5> 
+                  <p></p>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="card-footer d-flex justify-content-between align-items-center">
+              <div class="buttons btn btn-sm nfx-sec-btn">Edit</div>
+              <div class="buttons btn btn-sm nfx-pri-btn">Remove</div>
+            </div>
+          </div>
+
+      </div>
+    </div>
+    <div class="backdrop  closeModal" id="backdrop"></div>
+    <div class="movieModal" id="movieModal">
+      <form id="movieForm">
+        <div class="card">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <h2 class="text-danger">Add Movie Details</h2>
+            <i class="fa-solid fa-square-xmark fa-2x text-danger closeModal"></i>
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <label for="movieName">Movie Name</label>
+              <input type="text" class="form-control" id="movieName"  required>
+            </div>
+            <div class="form-group">
+              <label for="movieImgUrl">Movie image Url</label>
+              <input type="text" class="form-control" id="movieImgUrl" required>
+            </div>
+            <div class="form-group">
+              <label for="movieDescription">Movie Description</label>
+              <textarea type="text" class="form-control" id="movieDescription"  rows="2" required>
+              </textarea>
+            </div>
+            <div class="form-group">
+              <label for="movieRating">Movie Rating</label>
+              <select id="movieRating" class="form-control" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+          </div>
+          <div class="card-footer d-flex justify-content-between align-items-center">
+            <button class="btn btn-sm nfx-sec-btn" type="submit" id="addMovieBtn">Add Movie</button>
+            <button class="btn btn-sm nfx-sec-btn d-none" type="button" id="updateMovieBtn">Update Movie</button>
+            <button class="btn btn-sm nfx-pri-btn closeModal" type="button">Close</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+
+     <div class="loader d-none" id="loader">
+        <div class="spinner-border text-primary" role="status">    
+        </div>
+        <p>Loading.....</p>
+    </div>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./assets/js/app.js"></script>
+</body>
+</html> 
